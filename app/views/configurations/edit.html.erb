@@ -1,0 +1,23 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Home', root_path %></a></li>
+  <li class="active">Configuration</li>
+</ol>
+
+<div class="page-header">
+  <%= form_for(@configuration, :role => "form") do |f| %>
+    <div class="form-group">
+      <%= label_tag(:global_support, "Global Support:") %>
+      <%= f.text_field( :global_support, :class =>"form-control", :placeholder => "Enter a number (Default: 0.25)") %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:cluster_support, "Cluster Support:") %>
+      <%= f.text_field(:cluster_support, :class => "form-control", :placeholder => "Enter a number (Default: 0.30)") %>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:number_cluster, "Number of cluster (optional):") %>
+      <%= f.text_field(:number_cluster, :class => "form-control", :placeholder => "Enter a number (Default: 30)") %>
+    </div>
+
+    <%= f.submit("Apply", :class => "btn btn-default") %>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+﻿<div class="jumbotron">
+  <h1>Bem-vindo ao hVINA!</h1>
+  <p>hVINA é um visualizador hierárquico de artigos jornalísticos</p>
+</div>
+
+<div>
+  <%= form_tag("/home/import", method: "post") do %>
+    <p>Escolha uma das seguintes coleções:</p>
+    
+    <p>Ou então importe uma coleção:</p>
+    <input type="file" data-filename-placement="inside">
+    <%= submit_tag("Import", :class => "btn btn-primary btn-lg") %>
+  <% end %>
+</div>
+
+<script>
+
+$('input[type=file]').bootstrapFileInput();
+$('.file-inputs').bootstrapFileInput();
+
+</script>

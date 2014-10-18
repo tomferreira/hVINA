@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  global_support: 1.5
+  cluster_support: 1.5
+  number_cluster: 1
+
+two:
+  global_support: 1.5
+  cluster_support: 1.5
+  number_cluster: 1

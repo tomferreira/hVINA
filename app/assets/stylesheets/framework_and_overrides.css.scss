@@ -1,0 +1,13 @@
+@import "bootstrap";
+
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #fff;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+
