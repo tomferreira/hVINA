@@ -1,17 +1,15 @@
-Rails.application.routes.draw do
+﻿Rails.application.routes.draw do
   get 'configurations/edit'
 
   get 'configurations/show'
-
   get 'configuration/index'
-
   get 'configuration/show'
 
   get 'viewer/charts'
-
   get 'viewer/index'
-
+  
   get 'home/index'
+  post 'home/import'
 
   resource :configuration
 

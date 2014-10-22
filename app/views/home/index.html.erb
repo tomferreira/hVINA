@@ -1,21 +1,73 @@
-﻿<div class="jumbotron">
+<div class="jumbotron">
   <h1>Bem-vindo ao hVINA!</h1>
   <p>hVINA é um visualizador hierárquico de artigos jornalísticos</p>
 </div>
 
 <div>
-  <%= form_tag("/home/import", method: "post") do %>
-    <p>Escolha uma das seguintes coleções:</p>
+    <div>
+      <h4>Escolha uma das seguintes coleções:</h4>
+      
+      <div class="row">      
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag("/logos/economist.png") %>
+            <div class="caption">
+              <h3>The Economist</h3>
+              <p>World News, Politics, Economics & Finance</p>
+              <p><small>526 artigos coletados</small></p>
+              <p><a href="#" class="btn btn-primary" role="button">Visualizar</a></p>              
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag("/logos/financialtimes.png") %>
+            <div class="caption">
+              <h3>Financial Times</h3>
+              <p>US Political, Financial & Bussiness News</p>
+              <p><small>213 artigos coletados</small></p>
+              <p><a href="#" class="btn btn-primary" role="button">Visualizar</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag("/logos/g1.png") %>
+            <div class="caption">
+              <h3>G1</h3>
+              <p>Portal de notícias com maior audiência do Brasil</p>
+              <p><small>310 artigos coletados</small></p>
+              <p><a href="#" class="btn btn-primary" role="button">Visualizar</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail">
+            <%= image_tag("/logos/paivanetto.png") %>
+            <div class="caption">
+              <h3>Paiva Netto</h3>
+              <p>Blog com artigos do jornalista Paiva Netto</p>
+              <p><small>413 artigos coletados</small></p>
+              <p><a href="#" class="btn btn-primary" role="button">Visualizar</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    <p>Ou então importe uma coleção:</p>
-    <input type="file" data-filename-placement="inside">
-    <%= submit_tag("Import", :class => "btn btn-primary btn-lg") %>
-  <% end %>
+    <%= form_tag("/home/import", method: "post", multipart: true) do %>
+      <div>
+        <h4>Ou então importe uma coleção:</h4>
+        <input type="file" name="filename" data-filename-placement="inside">
+        <%= submit_tag("Import", :class => "btn btn-primary btn-lg") %>
+      </div>
+    <% end %>
 </div>
 
 <script>
-
-$('input[type=file]').bootstrapFileInput();
-$('.file-inputs').bootstrapFileInput();
-
+	$('input[type=file]').bootstrapFileInput();
+	$('.file-inputs').bootstrapFileInput();
 </script>
