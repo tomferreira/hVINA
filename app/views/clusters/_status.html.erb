@@ -1,0 +1,23 @@
+<div id="status_info">
+	<p>Status: <%= @cluster.status %></p>
+</div>
+
+<script type="text/javascript">
+
+	<% if @cluster.status_ok? %>
+		window.href = '<%= cluster_path(@cluster) %>';	
+	<% else %>
+		function update_status () {
+		  $.ajax({
+			 type:     "GET",
+			 url:      "<%= cluster_path(@cluster) %>.js",
+			 dataType: "html",
+			 success: function (res) {
+				$('#status_info').html(res);
+			 }
+		  });
+		}
+
+		setTimeout(update_status, 3000);
+	<% end %>
+</script>

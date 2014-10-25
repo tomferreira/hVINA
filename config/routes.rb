@@ -1,4 +1,8 @@
 ﻿Rails.application.routes.draw do
+  
+  resources :clusters
+  post 'clusters/import'
+  
   get 'configurations/edit'
 
   get 'configurations/show'
@@ -8,8 +12,7 @@
   get 'viewer/charts'
   get 'viewer/index'
   
-  get 'home/index'
-  post 'home/import'
+  get 'home/index' 
 
   resource :configuration
 

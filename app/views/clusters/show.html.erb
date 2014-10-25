@@ -1,0 +1,8 @@
+<% unless @cluster.status_ok? %>
+<h1>Executing <%= @cluster.id %></h1>
+<section>
+  <%= render partial: 'status' %>
+</section>
+<% else %>
+<h1>Finished <%= @cluster.id %></h1>
+<% end %>
