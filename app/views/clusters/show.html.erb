@@ -4,7 +4,7 @@
 </ol>
   
 <% unless @cluster.status_ok? %>
-<h1>Executing <%= @cluster.id %></h1>
+<div class="loader">Loading...</div>
 <section>
   <%= render partial: 'status' %>
 </section>

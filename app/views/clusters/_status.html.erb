@@ -1,11 +1,8 @@
-<div id="status_info">
-	<p>Status: <%= @cluster.status %></p>
-</div>
+<div id="status_info"></div>
 
 <script type="text/javascript">
-
 	<% if @cluster.status_ok? %>
-		window.href = '<%= cluster_path(@cluster) %>';	
+		location.href = '<%= cluster_path(@cluster) %>';
 	<% else %>
 		function update_status () {
 		  $.ajax({
