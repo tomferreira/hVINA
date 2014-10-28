@@ -1,12 +1,12 @@
-angular.module('hierarchie')
+﻿angular.module('hierarchie')
   .config(['$routeProvider',
     function($routeProvider) {
       $routeProvider.when('/', {
-        templateUrl: 'charts.html',
+        templateUrl: 'charts',
         controller: 'MainCtrl'
       })
-        .otherwise({
-          redirectTo: '/'
-        });
+      .otherwise({
+        redirectTo: '/'
+      });
     }
   ]);

@@ -1,8 +1,39 @@
+<ol class="breadcrumb">
+  <li><%= link_to 'Home', root_path %></a></li>
+  <li class="active">Clustering</li>
+</ol>
+  
 <% unless @cluster.status_ok? %>
 <h1>Executing <%= @cluster.id %></h1>
 <section>
   <%= render partial: 'status' %>
 </section>
 <% else %>
-<h1>Finished <%= @cluster.id %></h1>
+  
+  <div ng-controller="MainCtrl" ng-init="init('/data/<%= @cluster.result_name %>')">
+    <span id="viz_panel">
+      <div id="sequence" breadcrumb></div>
+      <div id="sunburst" sunburst data="data" ng-hide="displayVis"></div>
+    </span>
+    <!--<div id="perspective-sunburst" sunburstperspective data="data" ng-hide="displayVis"></div>-->
+  
+    <div id="docs_viewer" style="margin:50px 0px 0px 550px">
+      <div id="content"></div>
+    </div>
+  </div>
+  
+  <script src="/assets/d3/d3.min.js"></script>
+  <script src="/assets/angular/angular.js"></script>
+  <script src="/assets/angular-route/angular-route.js"></script>
+  <script src="/assets/underscore/underscore.js"></script>
+  <script src="/assets/viewer/app.js"></script>
+  <script src="/assets/viewer/routes.js"></script>
+  <script src="/assets/viewer/services.js"></script>
+  <script src="/assets/viewer/controllers.js"></script>
+  <script src="/assets/viewer/filters.js"></script>
+  <script src="/assets/viewer/directives.js"></script>      
+  <script src="/assets/viewer/directives/breadcrumb.js"></script>
+  <!--<script src="/assets/viewer/directives/sunburst-perspective.js"></script>-->
+  <script src="/assets/viewer/directives/sunburst.js"></script>  
+
 <% end %>

@@ -37,25 +37,26 @@ angular.module('hierarchie.controllers', ['hierarchie.services'])
     };
 
     $scope.color = d3.scale.ordinal().range(["#33a02c", "#1f78b4", "#b2df8a", "#a6cee3", "#fb9a99", "#e31a1c", "#fdbf6f", "#ff7f00", "#6a3d9a", "#cab2d6", "#ffff99"]);
-    
-    // Load data
-    $http({
-      method: 'GET',
-      url: "/data/artigos.json"
-    }).
-    success(function(data, status, headers, config) {
-      // Do a little minipulation of the data formatting to create a valid root
-      var root = {
-        name: "News",
-        children: data.topic_data,
-        words: ["News"]
-      };
-      $scope.assignColors(root);
-      $scope.data = root;
-    }).
-    error(function(data, status, headers, config) {
-      console.log("Error loading data!" + status);
-    });
 
+    $scope.init = function(url) {
+      // Load data
+      $http({
+        method: 'GET',
+        url: url //"/data/artigos.json"
+      }).
+      success(function(data, status, headers, config) {
+        // Do a little minipulation of the data formatting to create a valid root
+        var root = {
+          name: "News",
+          children: data.topic_data,
+          words: ["News"]
+        };
+        $scope.assignColors(root);
+        $scope.data = root;
+      }).
+      error(function(data, status, headers, config) {
+        console.log("Error loading data!" + status);
+      });
+    }
   }
 ])

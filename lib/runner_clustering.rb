@@ -43,21 +43,21 @@ private
 
         end
         
-        dest_dir.to_s 
+        dest_dir.to_s
     end
     
     def run(cluster, dirname)
         global_support, cluster_support, number_cluster = get_configurations
 
         result_dir = Rails.root.join("public/data")
-        result_path = "#{result_dir}/#{SecureRandom.hex}"
+        result_name = SecureRandom.hex
                 
         algorithm = Clustering::Fihc::Controller.new(global_support, cluster_support, number_cluster)
-        algorithm.output_manager(HVinaOutputManager.new(result_path))
+        algorithm.output_manager(HVinaOutputManager.new("#{result_dir}/#{result_name}"))
 
         HierarchicalClustering.new(dirname, algorithm)
         
-        cluster.update(status: Cluster::STATUS_OK)
+        cluster.update(status: Cluster::STATUS_OK, result_name: result_name + ".json")
     end
     
     def get_configurations
