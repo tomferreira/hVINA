@@ -55,7 +55,7 @@ angular.module('hierarchie.directives')
             // Dimensions of sunburst.
             var margin = 140;
             var mobileDisplay = d3.select("body")[0][0].clientWidth < 990;
-            var wordMargin = 100;
+            var wordMargin = 70;
             if (mobileDisplay)
               wordMargin = 50;
             var width = d3.select("#viz_panel")[0][0].clientWidth - (margin / 2);
@@ -125,7 +125,7 @@ angular.module('hierarchie.directives')
             // Append text for topic words to center
             vis.append("foreignObject")
               .attr("class", "explanation-obj")
-              .style("border-radius", "50%")
+              .style("border-radius", "0%")
               .attr("width", radius - wordMargin)
               .attr("height", radius - wordMargin)
               .style("z-index", 100)
