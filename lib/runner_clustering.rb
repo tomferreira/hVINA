@@ -52,10 +52,10 @@ private
         result_dir = Rails.root.join("public/data")
         result_name = SecureRandom.hex
                 
-        algorithm = Clustering::Fihc::Controller.new(global_support, cluster_support, number_cluster)
+        algorithm = Clustering::Fihc::Controller.new(global_support: global_support, cluster_support: cluster_support, k_clusters: number_cluster)
         algorithm.output_manager(HVinaOutputManager.new("#{result_dir}/#{result_name}"))
 
-        HierarchicalClustering.new(dirname, algorithm)
+        HierarchicalClustering.new(dir: dirname, algorithm: algorithm)
         
         cluster.update(status: Cluster::STATUS_OK, result_name: result_name + ".json")
     end
