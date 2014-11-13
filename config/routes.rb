@@ -10,6 +10,7 @@
   get 'configuration/show'
   
   get 'home/index' 
+  get 'home/about'
 
   resource :configuration
 
