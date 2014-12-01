@@ -19,9 +19,9 @@ def titlelize(title)
 end
 
 urls = { 
-    'G1' => 'http://fulltextrssfeed.com/g1.globo.com/dynamo/rss2.xml',
-    'Economist' => 'http://fulltextrssfeed.com/www.economist.com/feeds/print-sections/74/international.xml',
-    'FinancialTimes' => 'http://fulltextrssfeed.com/www.ft.com/rss/world'
+    'G1' => 'http://g1.globo.com/dynamo/rss2.xml',
+    'Economist' => 'http://www.economist.com/feeds/print-sections/74/international.xml',
+    'FinancialTimes' => 'http://www.ft.com/rss/world'
 }
 
 path = File.join(Dir.pwd, NEWS_FOLDER)
